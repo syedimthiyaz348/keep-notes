@@ -177,7 +177,6 @@ app.post("/login", async (req, res) => {
       userCredentials.password
     );
     if (verifyPassword === true) {
-      res.send({ msg: "Login Success" });
       res.send({token: userCredentials.jwtToken})
     } else {
       res.send({ error_msg: "Password Not Matched" });
