@@ -158,6 +158,7 @@ app.post("/signup", async (req, res) => {
     };
     const userData = await user(result);
     const saveData = await userData.save();
+    res.send({ msg: "Account Created Successfully" });
     res.send({ token });
   }
 });
@@ -177,6 +178,7 @@ app.post("/login", async (req, res) => {
     );
     if (verifyPassword === true) {
       res.send({ msg: "Login Success" });
+      res.send({token: userCredentials.jwtToken})
     } else {
       res.send({ error_msg: "Password Not Matched" });
     }
